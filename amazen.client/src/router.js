@@ -17,9 +17,9 @@ const routes = [
     component: loadPage('AboutPage')
   },
   {
-    path: '/contracts',
+    path: '/contracts/:id',
     name: 'contract',
-    component: loadPage('ContractCard')
+    component: loadPage('ContractPage')
   },
   {
     path: '/account',

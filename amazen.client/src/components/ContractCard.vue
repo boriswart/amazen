@@ -7,9 +7,9 @@
       </h3>
       <p>{{ contract.description }}</p>
       <div>
-        <!-- <router-link :to="{name: 'Contract', params: {id: contract.id}}">
+        <router-link :to="{name: 'contract', params: {id: contract.id}}">
           Contract details
-        </router-link> -->
+        </router-link>
       </div>
     </div>
     <div class="card-footer text-right">

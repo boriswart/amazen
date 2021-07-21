@@ -6,5 +6,6 @@ export const AppState = reactive({
   account: {},
   contract: {},
   contracts: [],
+  contractBids: [],
   profile: {}
 })

@@ -20,10 +20,10 @@ CREATE TABLE IF NOT EXISTS contract_bids(
   id INT AUTO_INCREMENT NOT NULL primary key COMMENT 'primary key',
   createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',
   updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last Update',
-  bid_amount INT NOT NULL COMMENT 'Job NameBid Amountg',
+  bid_amount INT NOT NULL COMMENT 'Job NameBid Amount',
   contractorId VARCHAR(255) NOT NULL COMMENT 'User Account',
   description VARCHAR(255) COMMENT 'Description of job assertions',
-  contractId INT COMMENT 'FK: job bid Id',
+  contractId INT COMMENT 'FK: Contract Id',
   FOREIGN KEY (contractId) REFERENCES contracts(id) ON DELETE CASCADE,
   FOREIGN KEY (contractorId) REFERENCES Accounts(id) ON DELETE CASCADE
 ) default charset utf8 COMMENT '';

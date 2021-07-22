@@ -6,9 +6,9 @@
       <h5 class="text-uppercase">
         Contract Bids
       </h5>
-      <div v-for="b in contractBids" :key="b.id">
+      <!-- <div v-for="b in contractBids" :key="b.id">
         <ContractBid :contract-bid="b" />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

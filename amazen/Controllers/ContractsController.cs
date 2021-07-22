@@ -34,6 +34,41 @@ namespace amazen.Controllers
       }
     }
 
+        [HttpGet("{id}")]
+        public ActionResult<Contract> GetOne(int id)
+        {
+            try
+            {
+                Contract contract = _cs.GetContractById(id);
+                return Ok(contract);
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("{id}/bids")]
+        public ActionResult<List<ContractBid>> GetContractBids(int id)
+        {
+            try
+            {
+                List<ContractBid> members = _cs.GetContracBids(id);
+                return Ok(members);
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+
+
+
+
+
+
+
 
   }
 

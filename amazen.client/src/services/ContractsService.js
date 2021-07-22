@@ -16,11 +16,11 @@ class ContractsService {
     AppState.contract = res.data
   }
 
-  // async getGroupMembers(groupId) {
-  //   AppState.members = []
-  //   const res = await api.get(`api/groups/${groupId}/members`)
-  //   AppState.members = res.data
-  // }
+  async getContractBids(contractId) {
+    AppState.contractBids = []
+    const res = await api.get(`api/contracts/${contractId}/bids`)
+    AppState.contractBids = res.data
+  }
 
   // async leaveGroup(g) {
   //   await api.delete(`api/groupmembers/${g.id}`)

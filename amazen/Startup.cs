@@ -34,7 +34,6 @@ namespace amazen
       ConfigureCors(services);
       ConfigureAuth(services);
       services.AddControllers();
-      services.AddControllers();
       services.AddSwaggerGen(c =>
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "amazen", Version = "v1" });
@@ -45,6 +44,7 @@ namespace amazen
       services.AddScoped<AccountService>();
       services.AddTransient<ContractsRepository>();
       services.AddTransient<ContractsService>();
+      services.AddTransient<ContractBidsRepository>();
     }
 
     private void ConfigureCors(IServiceCollection services)
@@ -53,14 +53,14 @@ namespace amazen
       {
         options.AddPolicy("CorsDevPolicy", builder =>
               {
-            builder
-                  .AllowAnyMethod()
-                  .AllowAnyHeader()
-                  .AllowCredentials()
-                  .WithOrigins(new string[]{
+                builder
+                      .AllowAnyMethod()
+                      .AllowAnyHeader()
+                      .AllowCredentials()
+                      .WithOrigins(new string[]{
                         "http://localhost:8080", "http://localhost:8081"
+                  });
               });
-          });
       });
     }
 

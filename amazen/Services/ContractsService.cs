@@ -19,19 +19,28 @@ namespace amazen.Services
     }
 
 
+    internal Contract CreateContract(Contract contractData)
+    {
+      Contract contract = _cRepo.Create(contractData);
+      _cRepo.Create(contractData);
+      return contract;
+    }
+
+
     internal List<Contract> GetContracts()
     {
       return _cRepo.GetAll();
     }
 
-    internal List<Contract> GetContractById(int id)
+    internal Contract GetContractById(int id)
     {
-      return _cRepo.GetContractById(id);
+      return _cRepo.GetById(id);
     }
 
-    internal List<ContractBid> GetContracBids(int id)
+    internal List<ContractBid> GetContractBids(int id)
     {
-      throw new NotImplementedException();
+      List<ContractBid> bids = _cbRepo.GetBidsByContractId(id);
+      return bids;
     }
   }
 }

@@ -22,8 +22,8 @@ namespace amazen.Repositories
     public Contract Create(Contract data)
     {
       var sql = @"
-            INSERT INTO contracts(name, description, img, creatorId)
-            VALUES(@Name, @Description, @Img, @CreatorId);
+            INSERT INTO contracts(name, description, location, creatorId)
+            VALUES(@Name, @Description, @Location, @CreatorId);
             SELECT LAST_INSERT_ID();
             ";
       var id = _db.ExecuteScalar<int>(sql, data);
@@ -40,7 +40,6 @@ namespace amazen.Repositories
                 FROM contracts c
                 JOIN Accounts a ON c.creatorId = a.id;
             ";
-      // Returning a list with just one element of type Contract Model
       // The join requires a Query wheras 
       // [{c:Contract, p: profile}].map(({c,p}) => c.creator = p) // mapping using virtual creator of type Profile
       return _db.Query<Contract, Profile, Contract>(sql, (c, p) =>
